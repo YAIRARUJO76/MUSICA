@@ -1,0 +1,246 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carta Secreta 💜</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Georgia', 'Times New Roman', cursive;
+    }body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #6a0dad, #9b59b6);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* Asegurar que los cuadros estén arriba */
+\.login, .carta {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: relative;
+  z-index: 10;
+}
+
+.login, .carta {
+  display: none;
+  box-shadow: 0 0 25px rgba(186, 85, 211, 0.9), 0 0 50px rgba(155, 89, 182, 0.8);
+  border: 2px solid rgba(216, 191, 216, 0.8);
+}
+
+.texto-carta {
+  text-align: left;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 15px;
+  border-radius: 12px;
+  background: rgba(128, 0, 128, 0.25);
+  box-shadow: inset 0 0 15px rgba(221, 160, 221, 0.8);
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Corazones */
+.corazon {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 18px;
+  animation: caer 6s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes caer {
+  from {
+    transform: translateY(-10vh);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+@keyframes aura {
+  0% { box-shadow: 0 0 20px #b26bff; }
+  50% { box-shadow: 0 0 45px #d7a6ff; }
+  100% { box-shadow: 0 0 20px #b26bff; }
+}
+
+.carta {
+  animation: aura 3s infinite;
+}
+#secreto-btn {
+  display: inline-block;
+  margin-top: 15px;           /* Separación del texto */
+  padding: 10px 20px;         /* Espacio interno */
+  background: linear-gradient(135deg, #ff99ff, #cc66cc); /* degradado bonito */
+  border: none;
+  border-radius: 25px;        /* Bordes redondeados */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+#secreto-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+#disculpa-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #ffb6c1, #ff66aa);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+#disculpa-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+  </style>
+</head>
+<body>  <!-- Login -->  <div class="login" id="login" style="display:block;">
+    <h1>🔒 Carta Secreta</h1>
+    <p>💜 Ingresa la contraseña para leer la carta 💜</p>
+    <input type="password" id="password" placeholder="Escribe la contraseña aquí 🔑" />
+    <button onclick="verificar()">Entrar</button>
+    <p id="error" style="color:#ffb6c1;"></p>
+  </div>  <!-- Carta -->  <div class="carta" id="carta">
+    <h1>💌 Para Ti</h1>
+    <div class="texto-carta">
+      <p>
+      <br><br>
+        <br>
+        Mi princesa
+
+No sabes lo feliz que me haces. Nunca imaginé formar un vínculo tan hermoso contigo; al final, uno nunca sabe lo que la vida le tiene preparado, pero aquí estoy, disfrutando cada momento contigo.
+
+Aunque no te conozco en persona, tu voz tan envolvente y dulce me hace imaginar lo increíble que eres. Por ti he cambiado, me has motivado muchísimo a mejorar como persona, y quiero que sepas que estoy muy orgulloso de ti.
+
+Ahora entiendo por qué tu color es el morado, porque tienes una energía tan bonita que ilumina y embellece todo, tal como lo hace ese color.
+
+Quiero que, a través de este mensaje, sepas lo valiosa que eres, lo fuerte que eres y lo especial que significas para mí. Y si en algún momento llegas a sentirte sola, recuerda que aquí estoy yo, siempre. Cuenta conmigo en las buenas y en las malas, siempre estaré aquí para ayudarte y apoyarte.
+<button id="secreto-btn" onclick="mostrarSecreto()">💜 Léeme</button>
+<p id="secreto" style="display:none; margin-top:10px;">
+En este mundo creía que no existía nada perfecto, sobre todo en las chicas y en esta generación…
+Pero todo eso cambió cuando te encontré a ti.
+Al hablar contigo y conocer un poco de ti, sentí cómo te esfuerzas cada día, tu nobleza, tu corazón, esa vibra tan bonita… eso es lo que la hace unica y especial💜
+</p>
+<button id="disculpa-btn" onclick="mostrarDisculpa()">💌 Disculpame</button>
+
+<p id="disculpa" style="display:none; margin-top:10px;">
+  Mi princesa, quiero que me disculpes si alguna vez te he hecho enojar o sentir mal.
+Por eso trato de mejorar cada día.
+Si a veces digo cosas que te molestan, quiero que sepas que no son mis intenciones;
+solo quiero verte feliz y escucharte sonreír.
+A veces, sin querer, uno dice cosas que la otra persona no entiende, pero siempre estoy pensando en ti con cariño. 💜
+</p>
+<p style="text-align: right; margin-top: 20px; font-style: italic;">
+  Con cariño, <br>
+  Yair <br>
+  13-12-25
+</p>
+      </p>
+    </div>
+  </div>  <script>
+    const CONTRASENA = "PINSHESHA"; // CAMBIA AQUÍ LA CONTRASEÑA
+
+    function verificar() {
+      const input = document.getElementById("password").value;
+      if (input === CONTRASENA) {
+        document.getElementById("login").style.display = "none";
+        clearInterval(lluvia);
+        iniciarLluvia();
+        document.getElementById("carta").style.display = "block";
+        reproducirMusica();
+      } else {
+        document.getElementById("error").innerText = "Contraseña incorrecta 💔";
+      }
+    }
+
+    // Lluvia de corazones y "te amo"
+    let lluvia = setInterval(() => {
+      const span = document.createElement("span");
+      span.classList.add("corazon");
+      const mensajes = ["UNICA","PINSHESHA","ERES IMPORTANTE PARA MI","NO CAMBIES","LUCHA POR TUS METAS","TE QUIERO MUCHO","ERES ESPECIAL","CUENTA CONMIGO EN TODO","👸","❤️"]; span.innerText = mensajes[Math.floor(Math.random() * mensajes.length)];
+      span.style.left = Math.random() * 100 + "vw";
+      span.style.fontSize = Math.random() * 10 + 14 + "px";
+      span.style.animationDuration = Math.random() * 3 + 4 + "s";
+      document.body.appendChild(span);
+
+      setTimeout(() => {
+        span.remove();
+      }, 7000);
+    }, 300);
+
+    function iniciarLluvia() {
+      lluvia = setInterval(() => {
+        const span = document.createElement("span");
+        span.classList.add("corazon");
+        const mensajes = ["UNICA","PINSHESHA","ERES IMPORTANTE PARA MI","NO CAMBIES","LUCHA POR TUS METAS","TE QUIERO MUCHO","ERES ESPECIAL PARA MI","CUENTA CONMIGO EN TODO","👸","❤️"];
+        span.innerText = mensajes[Math.floor(Math.random() * mensajes.length)];
+        span.style.left = Math.random() * 100 + "vw";
+        span.style.fontSize = Math.random() * 10 + 14 + "px";
+        span.style.animationDuration = Math.random() * 3 + 5 + "s";
+        document.body.appendChild(span);
+
+        setTimeout(() => span.remove(), 8000);
+      }, 350);
+    }
+  function reproducirMusica() {
+  const audio = document.getElementById("musica");
+  audio.volume = 0.4;
+  audio.play();
+}
+function mostrarSecreto() {
+  const secreto = document.getElementById("secreto");
+  // Alternar mostrar/ocultar
+  secreto.style.display = secreto.style.display === "none" ? "block" : "none";
+}
+function mostrarDisculpa() {
+  const disculpa = document.getElementById("disculpa");
+  if (disculpa.style.display === "none") {
+    disculpa.style.display = "block";
+    disculpa.classList.add("fade-in"); // animación
+  } else {
+    disculpa.style.display = "none";
+    disculpa.classList.remove("fade-in");
+  }
+}
+</script>
+<audio id="musica" loop>
+  <source src="https://drive.google.com/uc?export=download&id=1KgZv4Elnw8b9xOZ8Z4MThEFcffMsITVh" type="audio/mpeg">
+</audio></body>
+</html>
