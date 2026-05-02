@@ -6,7 +6,7 @@
 <title>Mi Princesa 💖</title>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  /* FONDO ANIMADO */
+  
   body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -125,7 +125,7 @@
     100% {transform: translateY(-70px) scale(1);}
   }
 
-  /* MODAL */
+  
   .modal {
     display: none;
     position: fixed;
@@ -167,14 +167,14 @@
     border: 2px solid rgba(255,255,255,0.2);
 }
 
-/* Agregamos efecto glow al hacer hover */
+
 .msg-btn:hover {
     background: linear-gradient(45deg, #ff79a3, #b36ccf);
     transform: scale(1.07);
     box-shadow: 0 0 15px #ff79a3, 0 0 30px #b36ccf;
 }
 
-/* Opcional: iluminar bordes del modal cuando se abre */
+
 .modal-content {
     background: #fff0f7;
     color: #5d3f6a;
@@ -193,7 +193,7 @@
     border-color: #ff79a3;
     box-shadow: 0 0 20px #ff79a3, 0 0 40px #b36ccf;
 }
-/* Glow animado para el cuadro principal */
+
 .message-box {
     background: rgba(255,255,255,0.1);
     border-radius: 25px;
@@ -207,7 +207,7 @@
     animation: glowBorder 2s ease-in-out infinite alternate;
 }
 
-/* Animación del borde */
+
 @keyframes glowBorder {
     0% {
         border-color: rgba(255, 121, 163, 0.5);
@@ -223,7 +223,7 @@
     }
 }
 
-/* Mantener los botones bonitos con gradiente */
+
 .message-box button {
     margin: 10px;
     padding: 12px 22px;
@@ -239,7 +239,7 @@
     transform: scale(1.07);
     box-shadow: 0 0 15px #ff79a3, 0 0 30px #b36ccf;
 }
-/* Glow animado para el cuadro del mensaje */
+
 #carta {
     position: relative;
     border: 2px solid transparent;
@@ -265,7 +265,7 @@
   <button class="msg-btn" onclick="abrirModal('<p>💖 Mujer preciosa y muy valiente que inspira a todo, es imposible encontrar y vale mas que cualquier piedra preciosa, afortunado yo en encontrarte mvda<p/>💖<p> Proverbios 31:10 <p/>')">Por aqui mvda</button>
   <button class="msg-btn" onclick="abrirModal('🌸 <p>Doy gracias a mi Dios cada vez que me acuerdo de ti.<p/> 🌸 <p>Filipenses 1:3 <p/>')">otrita por ati</button>
   <button class="msg-btn" onclick="abrirModal('💜<p> Eres toda hermosa, mi amor; es imposible encontrar algun defecto en ti bb<p/>💜<p>Cantares 4:7<p/>')">otita y yap</button>
-  <!-- NUEVOS BOTONES DE AUDIO -->
+  
 <button class="msg-btn" onclick="reproducirBotonAudio('https://raw.githubusercontent.com/YAIRARUJO76/M%C3%9ASICA/main/miamor.mp3')">palabras para ti mvda</button>
 </div>
 
@@ -319,37 +319,37 @@ function abrirModal(mensaje){
   document.getElementById("mensajeSecreto").innerHTML = mensaje;
   document.getElementById("miModal").style.display = "flex";
 
-  // Agregar glow
+
   modalContent.classList.add("show-glow");
 }
 function cerrarModal(){
   const modalContent = document.querySelector(".modal-content");
   document.getElementById("miModal").style.display = "none";
 
-  // Quitar glow
+  
   modalContent.classList.remove("show-glow");
 }
 function reproducirBotonAudio(url) {
-  // Detener la música principal si está sonando
+  
   const mainAudio = document.getElementById("musica");
   if(!mainAudio.paused){
     mainAudio.pause();
     mainAudio.currentTime = 0;
   }
 
-  // Mostrar el reproductor si está oculto
+  
   const playerContainer = document.getElementById("playerContainer");
   playerContainer.style.display = "block";
 
-  // Cambiar fuente y cargarla
+  
   const playerAudio = document.getElementById("playerAudio");
   const playerSource = document.getElementById("playerSource");
   playerSource.src = url;
-  playerAudio.load(); // Solo carga la fuente, NO reproducir
-  // NO usamos playerAudio.play()
+  playerAudio.load(); 
+  
 }
 </script>
-<!-- Reproductor dinámico -->
+
 <div id="playerContainer" style="display:none; margin-top:20px; text-align:center; 
     border:2px solid rgba(255,121,163,0.5); 
     border-radius:20px; 
